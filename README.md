@@ -1,7 +1,1 @@
-# Sample Vite + React + Amplify app
-
-Categories are isolated by branch
-
-### Authentication (auth)
-
-### PubSub (pubsub)
+# Sample Vite + React + Amplify for Storage category

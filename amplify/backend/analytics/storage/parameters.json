@@ -1,0 +1,21 @@
+{
+    "appName": "storage",
+    "roleName": "pinpointLambdaRole9be4ee84",
+    "cloudformationPolicyName": "cloudformationPolicy9be4ee84",
+    "cloudWatchPolicyName": "cloudWatchPolicy9be4ee84",
+    "pinpointPolicyName": "pinpointPolicy9be4ee84",
+    "authPolicyName": "pinpoint_amplify_9be4ee84",
+    "unauthPolicyName": "pinpoint_amplify_9be4ee84",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
