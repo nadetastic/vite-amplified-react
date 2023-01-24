@@ -9,7 +9,9 @@ const formStateEnum = {
     confirmSignUp: 'confirmSignUp',
     signIn: 'signIn',
     loggedIn: 'loggedIn',
-    verifySignUp: 'verifySignUp'
+    verifySignUp: 'verifySignUp',
+    forgotPassword: 'forgotPassword',
+    verifyForgotPassword: 'verifyForgotPassword',
   };
 
 const initialCreds = { username:'',password:'',code:'',formState: formStateEnum.signIn, error: ''}
@@ -96,6 +98,25 @@ const Home = () => {
         }
     }
 
+    const forgotPassword = async () => {
+        try {
+            const res = await Auth.forgotPassword(creds.username)
+            console.log(res)
+            set_creds({...creds,formState:formStateEnum.verifyForgotPassword})
+        } catch(e){
+            console.error(e)
+        }
+    }
+
+    const verifyForgotPassword = async () => {
+        try {
+            const res = await Auth.forgotPasswordSubmit(creds.username,creds.code,creds.password)
+            console.log(res)
+            set_creds({...creds,formState:formStateEnum.signIn})
+        } catch(e){
+            console.error(e)
+        }
+    }
     return ( 
         <div className="App">
             <h1>Amplify + Vite</h1>
@@ -117,6 +138,7 @@ const Home = () => {
                     <input type="text" placeholder="Password" onChange={e => set_creds({...creds, password: e.target.value})} /><br />
                     <button onClick={signUp}>Sign Up</button><br/>
                     <a onClick={() => set_creds({...creds,formState:formStateEnum.signIn})}>Sign In</a><br />
+                    <a onClick={() => set_creds({...creds,formState:formStateEnum.forgotPassword})}>Forgot Password</a>
                     <a onClick={() => set_creds({...creds,formState:formStateEnum.resendSignUp})}>Resend SignUp Code</a>
                 </div>
             )}
@@ -128,6 +150,26 @@ const Home = () => {
                     <button onClick={confirmSignUp}>Confirm SignUp</button>
                 </div>
             )}
+
+            {
+                creds.formState === formStateEnum.forgotPassword && (
+                    <div className="card">
+                        <h2>Forgot Password</h2>
+                        <input type="text" placeholder="Username" onChange={e => set_creds({...creds, username: e.target.value })} /><br />
+                        <button onClick={forgotPassword}>Forgot Password</button>
+                    </div>
+                )
+            }
+            {
+                creds.formState === formStateEnum.verifyForgotPassword && (
+                    <div className="card">
+                        <h2>Verify Forgot Password</h2>
+                        <input type="text" placeholder="code" onChange={e => set_creds({...creds, code: e.target.value })} /><br />
+                        <input type="text" placeholder="new password" onChange={e => set_creds({...creds, password: e.target.value })} /><br />
+                        <button onClick={verifyForgotPassword}>Verify Forgot Password</button>
+                    </div>
+                )
+            }
 
             { creds.formState === formStateEnum.resendSignUp && (
                 <div className="card">
@@ -205,4 +247,4 @@ const HomeWithUI = () => {
 
 }
 
-export default HomeWithUI;
+export default Home;
