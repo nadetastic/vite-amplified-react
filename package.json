@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^4.6.0",
+    "@aws-amplify/ui-react-storage": "^1.1.0",
     "aws-amplify": "^5.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

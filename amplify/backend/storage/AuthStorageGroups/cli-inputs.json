@@ -1,0 +1,20 @@
+{
+  "resourceName": "AuthStorageGroups",
+  "policyUUID": "bdbef6a3",
+  "bucketName": "amplify-authstoragegroups",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {
+    "Admins": [
+      "CREATE_AND_UPDATE",
+      "READ",
+      "DELETE"
+    ]
+  }
+}
