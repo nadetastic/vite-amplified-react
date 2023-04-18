@@ -1,7 +1,4 @@
-# Sample Vite + React + Amplify app
+# User groups/Storage
 
-Categories are isolated by branch
+> [https://github.com/aws-amplify/amplify-js/issues/2390](https://github.com/aws-amplify/amplify-js/issues/2390)
 
-### Authentication (auth)
-
-### PubSub (pubsub)
