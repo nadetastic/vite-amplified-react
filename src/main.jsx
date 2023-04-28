@@ -5,7 +5,19 @@ import './index.css'
 
 import { Amplify } from 'aws-amplify'
 import config from './aws-exports'
-Amplify.configure(config)
+// Amplify.configure(config)
+
+const updateConfig = {
+  ...config,
+  cookieStorage: {
+    domain: '.amplifyapp.com',
+    path: '/',
+    expires: 365,
+    secure: true
+  }
+}
+
+Amplify.configure(updateConfig)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
