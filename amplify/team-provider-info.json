@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-saml-dev-154634-authRole",
+      "UnauthRoleArn": "arn:aws:iam::524405517764:role/amplify-saml-dev-154634-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::524405517764:role/amplify-saml-dev-154634-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-saml-dev-154634-deployment",
+      "UnauthRoleName": "amplify-saml-dev-154634-unauthRole",
+      "StackName": "amplify-saml-dev-154634",
+      "StackId": "arn:aws:cloudformation:us-east-1:524405517764:stack/amplify-saml-dev-154634/c2f23d80-eabc-11ed-9232-1250d46d0ee1",
+      "AmplifyAppId": "d2iuurtzt3mb7n"
+    },
+    "categories": {
+      "auth": {
+        "saml7cabc8267cabc826": {}
+      }
+    }
+  }
+}
