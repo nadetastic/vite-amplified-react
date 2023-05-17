@@ -1,0 +1,6 @@
+[
+  {
+    "Action": ["cognito-idp:ListUsers", "cognito-idp:AdminLinkProviderForUser"],
+    "Resource": ["arn:aws:cognito-idp:us-east-1:<your-account-id>:userpool/<your-userpool-id>"]
+  }
+]

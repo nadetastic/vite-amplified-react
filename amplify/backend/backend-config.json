@@ -1,0 +1,93 @@
+{
+  "auth": {
+    "federatedAuth": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "federatedAuthPreSignup",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [
+          "FACEBOOK",
+          "GOOGLE",
+          "APPLE"
+        ],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "federatedAuthPreSignup": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_federatedAuth_appleAppId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "federatedAuth"
+        }
+      ]
+    },
+    "AMPLIFY_auth_federatedAuth_facebookAppId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "federatedAuth"
+        }
+      ]
+    },
+    "AMPLIFY_auth_federatedAuth_googleClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "federatedAuth"
+        }
+      ]
+    },
+    "AMPLIFY_function_federatedAuthPreSignup_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "federatedAuthPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_federatedAuthPreSignup_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "federatedAuthPreSignup"
+        }
+      ]
+    }
+  }
+}

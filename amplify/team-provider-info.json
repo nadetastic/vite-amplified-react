@@ -1,0 +1,31 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-federatedauth-dev-94943-authRole",
+      "UnauthRoleArn": "arn:aws:iam::524405517764:role/amplify-federatedauth-dev-94943-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::524405517764:role/amplify-federatedauth-dev-94943-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-federatedauth-dev-94943-deployment",
+      "UnauthRoleName": "amplify-federatedauth-dev-94943-unauthRole",
+      "StackName": "amplify-federatedauth-dev-94943",
+      "StackId": "arn:aws:cloudformation:us-east-1:524405517764:stack/amplify-federatedauth-dev-94943/221b5ff0-6046-11ed-aa78-1268c1c8de67",
+      "AmplifyAppId": "d3u955rttd43uq",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-federatedauth-dev-94943-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "federatedAuth": {
+          "facebookAppId": "515038610092247",
+          "googleClientId": "541264766868-vei0r49i7oq6f9qdoh4kmv8vca3i00p7.apps.googleusercontent.com",
+          "appleAppId": "com.nadetastic.dxe-test"
+        }
+      },
+      "function": {
+        "federatedAuthPreSignup": {
+          "deploymentBucketName": "amplify-federatedauth-dev-94943-deployment",
+          "s3Key": "amplify-builds/federatedAuthPreSignup-4e66466b395a71504d5a-build.zip"
+        }
+      }
+    }
+  }
+}
