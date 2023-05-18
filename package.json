@@ -1,5 +1,5 @@
 {
-  "name": "issue10829vite",
+  "name": "vite-amplified-react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "aws-amplify": "^5.0.9",
+    "aws-amplify": "^5.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
