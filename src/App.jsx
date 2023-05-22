@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { jsx, css, Global, ClassNames } from '@emotion/react'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +28,33 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <div css={{ color: 'hotpink' }}>
+    <div
+      css={css`
+        color: green;
+      `}
+    />
+    <Global
+      styles={{
+        body: {
+          margin: 0,
+          padding: 0
+        }
+      }}
+    />
+    <ClassNames>
+      {({ css, cx }) => (
+        <div
+          className={cx(
+            'some-class',
+            css`
+              color: yellow;
+            `
+          )}
+        />
+      )}
+    </ClassNames>
+  </div>
     </div>
   )
 }
