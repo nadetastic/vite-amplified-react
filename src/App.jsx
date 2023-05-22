@@ -28,12 +28,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <div css={{ color: 'hotpink' }}>
+      <div css={{ color: 'hotpink' }}>HotPink
     <div
       css={css`
         color: green;
       `}
-    />
+    >Green</div>
     <Global
       styles={{
         body: {
@@ -51,7 +51,7 @@ function App() {
               color: yellow;
             `
           )}
-        />
+        >some-class yellow</div>
       )}
     </ClassNames>
   </div>
