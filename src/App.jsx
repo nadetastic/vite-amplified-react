@@ -2,9 +2,21 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { jsx, css, Global, ClassNames } from '@emotion/react'
+import { Auth } from 'aws-amplify'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [text, setText] = useState('')
+
+  const current = async () => {
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      setText(user.username)
+      console.log(user)
+    } catch (error) {
+      console.log(error)
+      setText(error)
+    }
+  }
 
   return (
     <div className="App">
@@ -18,9 +30,8 @@ function App() {
       </div>
       <h1>Vite + React + Amplify</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={current}>Current User</button>
+        <p>{ text }</p>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
