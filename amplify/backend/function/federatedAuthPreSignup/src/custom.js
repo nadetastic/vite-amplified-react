@@ -61,7 +61,7 @@ const getProviderName = async (userPoolId, providerName) => {
     return knownProviderNames[providerName];
   }
 
-  const { Providers } = await cognito.listIdentityProviders({ UserPoolId: userPoolId }).promise();
+  const { Providers } = await cognitoidentityserviceprovider.listIdentityProviders({ UserPoolId: userPoolId }).promise();
   for (const provider of Providers) {
     if (provider.ProviderName.toLowerCase() === providerName.toLowerCase()) {
       return provider.ProviderName;
