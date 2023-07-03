@@ -1,0 +1,16 @@
+{
+  "trigger": true,
+  "modules": [
+    "boilerplate-define-challenge"
+  ],
+  "parentResource": "customauthflowmfa8ac124258ac12425",
+  "functionName": "customauthflowmfa8ac124258ac12425DefineAuthChallenge",
+  "resourceName": "customauthflowmfa8ac124258ac12425DefineAuthChallenge",
+  "parentStack": "auth",
+  "triggerEnvs": "[]",
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/DefineAuthChallenge",
+  "triggerTemplate": "DefineAuthChallenge.json.ejs",
+  "triggerEventPath": "DefineAuthChallenge.event.json",
+  "roleName": "customauthflowmfa8ac124258ac12425DefineAuthChallenge",
+  "skipEdit": true
+}

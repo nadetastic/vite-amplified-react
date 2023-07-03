@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
   "auth": {
-    "customauthflowmfa8ac124258ac12425": {
+    "customauthmfa09986abf09986abf": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "CreatedSNSRole": "string",
@@ -12,21 +12,21 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "customauthflowmfa8ac124258ac12425CreateAuthChallenge": {
+    "customauthmfa09986abf09986abfCreateAuthChallenge": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
     },
-    "customauthflowmfa8ac124258ac12425DefineAuthChallenge": {
+    "customauthmfa09986abf09986abfDefineAuthChallenge": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
       "Name": "string",
       "Region": "string"
     },
-    "customauthflowmfa8ac124258ac12425VerifyAuthChallengeResponse": {
+    "customauthmfa09986abf09986abfVerifyAuthChallengeResponse": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

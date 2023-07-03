@@ -1,6 +1,6 @@
 {
   "auth": {
-    "customauthflowmfa8ac124258ac12425": {
+    "customauthmfa09986abf09986abf": {
       "customAuth": true,
       "dependsOn": [
         {
@@ -9,7 +9,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "customauthflowmfa8ac124258ac12425DefineAuthChallenge",
+          "resourceName": "customauthmfa09986abf09986abfDefineAuthChallenge",
           "triggerProvider": "Cognito"
         },
         {
@@ -18,7 +18,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "customauthflowmfa8ac124258ac12425CreateAuthChallenge",
+          "resourceName": "customauthmfa09986abf09986abfCreateAuthChallenge",
           "triggerProvider": "Cognito"
         },
         {
@@ -27,7 +27,7 @@
             "Name"
           ],
           "category": "function",
-          "resourceName": "customauthflowmfa8ac124258ac12425VerifyAuthChallengeResponse",
+          "resourceName": "customauthmfa09986abf09986abfVerifyAuthChallengeResponse",
           "triggerProvider": "Cognito"
         }
       ],
@@ -56,68 +56,68 @@
     }
   },
   "function": {
-    "customauthflowmfa8ac124258ac12425CreateAuthChallenge": {
+    "customauthmfa09986abf09986abfCreateAuthChallenge": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "customauthflowmfa8ac124258ac12425DefineAuthChallenge": {
+    "customauthmfa09986abf09986abfDefineAuthChallenge": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "customauthflowmfa8ac124258ac12425VerifyAuthChallengeResponse": {
+    "customauthmfa09986abf09986abfVerifyAuthChallengeResponse": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_customauthflowmfa8ac124258ac12425CreateAuthChallenge_deploymentBucketName": {
+    "AMPLIFY_function_customauthmfa09986abf09986abfCreateAuthChallenge_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "customauthflowmfa8ac124258ac12425CreateAuthChallenge"
+          "resourceName": "customauthmfa09986abf09986abfCreateAuthChallenge"
         }
       ]
     },
-    "AMPLIFY_function_customauthflowmfa8ac124258ac12425CreateAuthChallenge_s3Key": {
+    "AMPLIFY_function_customauthmfa09986abf09986abfCreateAuthChallenge_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "customauthflowmfa8ac124258ac12425CreateAuthChallenge"
+          "resourceName": "customauthmfa09986abf09986abfCreateAuthChallenge"
         }
       ]
     },
-    "AMPLIFY_function_customauthflowmfa8ac124258ac12425DefineAuthChallenge_deploymentBucketName": {
+    "AMPLIFY_function_customauthmfa09986abf09986abfDefineAuthChallenge_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "customauthflowmfa8ac124258ac12425DefineAuthChallenge"
+          "resourceName": "customauthmfa09986abf09986abfDefineAuthChallenge"
         }
       ]
     },
-    "AMPLIFY_function_customauthflowmfa8ac124258ac12425DefineAuthChallenge_s3Key": {
+    "AMPLIFY_function_customauthmfa09986abf09986abfDefineAuthChallenge_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "customauthflowmfa8ac124258ac12425DefineAuthChallenge"
+          "resourceName": "customauthmfa09986abf09986abfDefineAuthChallenge"
         }
       ]
     },
-    "AMPLIFY_function_customauthflowmfa8ac124258ac12425VerifyAuthChallengeResponse_deploymentBucketName": {
+    "AMPLIFY_function_customauthmfa09986abf09986abfVerifyAuthChallengeResponse_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "customauthflowmfa8ac124258ac12425VerifyAuthChallengeResponse"
+          "resourceName": "customauthmfa09986abf09986abfVerifyAuthChallengeResponse"
         }
       ]
     },
-    "AMPLIFY_function_customauthflowmfa8ac124258ac12425VerifyAuthChallengeResponse_s3Key": {
+    "AMPLIFY_function_customauthmfa09986abf09986abfVerifyAuthChallengeResponse_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "customauthflowmfa8ac124258ac12425VerifyAuthChallengeResponse"
+          "resourceName": "customauthmfa09986abf09986abfVerifyAuthChallengeResponse"
         }
       ]
     }

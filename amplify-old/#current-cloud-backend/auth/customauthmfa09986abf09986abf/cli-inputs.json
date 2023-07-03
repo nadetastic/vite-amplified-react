@@ -1,14 +1,14 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "emailauth7e268f79_identitypool_7e268f79",
+    "identityPoolName": "customauthmfa09986abf_identitypool_09986abf",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "emaila7e268f79",
-    "userPoolName": "emailauth7e268f79_userpool_7e268f79",
+    "resourceNameTruncated": "custom09986abf",
+    "userPoolName": "customauthmfa09986abf_userpool_09986abf",
     "autoVerifiedAttributes": [
       "email"
     ],
-    "mfaConfiguration": "OFF",
+    "mfaConfiguration": "ON",
     "mfaTypes": [
       "SMS Text Message"
     ],
@@ -31,10 +31,10 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "emaila7e268f79_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "custom09986abf_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "7e268f79",
-    "resourceName": "emailauth7e268f797e268f79",
+    "sharedId": "09986abf",
+    "resourceName": "customauthmfa09986abf09986abf",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
     "thirdPartyAuth": false,
@@ -43,7 +43,17 @@
     ],
     "userPoolGroups": false,
     "adminQueries": false,
-    "triggers": {},
+    "triggers": {
+      "DefineAuthChallenge": [
+        "boilerplate-define-challenge"
+      ],
+      "CreateAuthChallenge": [
+        "boilerplate-create-challenge"
+      ],
+      "VerifyAuthChallengeResponse": [
+        "boilerplate-verify"
+      ]
+    },
     "hostedUI": false,
     "userPoolGroupList": [],
     "serviceName": "Cognito",
