@@ -21,32 +21,6 @@ export function override(resources: AmplifyAuthCognitoStackTemplate, amplifyProj
         },
         "MyAzure"
       );
-
-    //   resources.addCfnResource(
-    //     {
-    //         type: "AWS::Cognito::UserPoolDomain",
-    //         properties: {
-    //             Domain: "mydomain-dkkiuna-saml-1488",
-    //             UserPoolId: { Ref: "UserPool" },
-    //         }
-    //     },
-    //     "MyUserPoolDomain",
-    //   )
-    
-    //   resources.addCfnCondition(
-    //     {
-    //         expression: {
-    //             creationStack: [],
-    //             resolve: () => {
-    //                 return { "Fn::Equals": [{ Ref: "env" }, "dev"] };
-    //             }
-    //         }
-
-    //     },
-    //     "MyAzureCondition",
-    //   )
-
-      
     
       resources.userPoolClientWeb.supportedIdentityProviders = [
         // "LoginWithAmazon",

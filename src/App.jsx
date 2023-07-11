@@ -6,6 +6,16 @@ import { Auth } from 'aws-amplify'
 function App() {
   const [count, setCount] = useState(0)
 
+  const currentUser = async () => {
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      console.log(user)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
   return (
     <div className="App">
       <div>
@@ -18,7 +28,9 @@ function App() {
       </div>
       <h1>Vite + React + Amplify</h1>
       <div className="card">
-        <button onClick={() => Auth.federatedSignIn({provider:'MyAzure'})}>Azure</button>
+        <button onClick={() => Auth.federatedSignIn({provider:'MyAzure'})}>Azure</button><br />
+        <button onClick={currentUser}>Current User</button><br />
+        <button onClick={() => Auth.signOut()}>Sign Out</button><br />
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
