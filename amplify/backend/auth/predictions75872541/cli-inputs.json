@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "emailauth7e268f79_identitypool_7e268f79",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "emaila7e268f79",
-    "userPoolName": "emailauth7e268f79_userpool_7e268f79",
+    "identityPoolName": "predictions75872541_identitypool_75872541",
+    "allowUnauthenticatedIdentities": true,
+    "resourceNameTruncated": "predic75872541",
+    "userPoolName": "predictions75872541_userpool_75872541",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,23 +31,32 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "emaila7e268f79_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "predic75872541_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "7e268f79",
-    "resourceName": "emailauth7e268f797e268f79",
+    "sharedId": "75872541",
+    "resourceName": "predictions75872541",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "manual",
-    "thirdPartyAuth": false,
+    "useDefault": "default",
     "usernameAttributes": [
       "email"
     ],
-    "userPoolGroups": false,
-    "adminQueries": false,
-    "triggers": {},
-    "hostedUI": false,
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": []
   }
 }

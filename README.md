@@ -1,4 +1,4 @@
-# Sample Vite + React + Amplify app
+# Support of PDFs with Amplify Predictions
 
 1. Git clone
 2. Amplify init/pull

@@ -1,32 +1,50 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import { Predictions } from 'aws-amplify'
+
+import { Authenticator } from '@aws-amplify/ui-react'
+import '@aws-amplify/ui-react/styles.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [file,setFile] = useState(null)
+
+  const idText = async () => {
+
+try {
+  const response = await Predictions.identify({
+    text: {
+      source: {
+        file
+      },
+      format: "FORM", 
+    }
+  })
+  console.log(response)
+} catch(e){
+  console.log(e)
+}
+
+  }
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React + Amplify</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <Authenticator>
+        {({signOut,user}) => (
+          <div>
+            <h1>Hi, {user.username}</h1>
+            <div>
+              <input type='file' onChange={(e) => setFile(e.target.files[0])} />
+            </div>
+            <div>
+              <button onClick={idText}>Identify</button>
+            </div>
+            <button onClick={signOut}>Sign Out</button>
+          </div>
+        )}
+      </Authenticator>
+
     </div>
   )
 }

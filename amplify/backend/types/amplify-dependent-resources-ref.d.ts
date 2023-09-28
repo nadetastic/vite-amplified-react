@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
   "auth": {
-    "emailauth7e268f797e268f79": {
+    "predictions75872541": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "IdentityPoolId": "string",
@@ -8,6 +8,21 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
+    }
+  },
+  "predictions": {
+    "identifyText57fa2f10": {
+      "format": "string",
+      "region": "string"
+    },
+    "texttospeech": {
+      "language": "string",
+      "region": "string",
+      "voice": "string"
+    },
+    "transcription22596091": {
+      "language": "string",
+      "region": "string"
     }
   }
 }

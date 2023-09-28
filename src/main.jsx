@@ -5,24 +5,27 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from './App'
-import Test from './Test';
 import './index.css'
+
+import { Amplify } from 'aws-amplify'
+import config from './aws-exports'
+Amplify.configure(config)
+
+import {
+  Predictions,
+  AmazonAIPredictionsProvider
+} from '@aws-amplify/predictions';
+Predictions.addPluggable(new AmazonAIPredictionsProvider());
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/test",
-    element: <Test />,
-  },
+  }
 ]);
 
 
-import { Amplify } from 'aws-amplify'
-import config from './aws-exports'
-Amplify.configure(config)
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
