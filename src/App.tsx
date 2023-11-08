@@ -8,10 +8,10 @@ import { fetchAuthSession, signIn } from 'aws-amplify/auth'
 
 import * as q from './graphql/queries'
 
+const client = generateClient()
+
 function App() {
 
-  const client = generateClient()
-  const [count, setCount] = useState(0)
 
   const test = async () => {
     try {
