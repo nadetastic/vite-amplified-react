@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "emailAuth",
+  "projectName": "STORAGE",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {

@@ -1,6 +1,6 @@
 {
   "auth": {
-    "emailauth7e268f797e268f79": {
+    "storage4dfda7d5": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -25,6 +25,13 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "storage": {
+    "amplifystoragebucket": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }
