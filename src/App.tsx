@@ -16,7 +16,7 @@ function App() {
   const test = async () => {
     try {
 
-      const res = client({
+      const res = client.graphql({
         query: q.listTodos
       })
       // await signIn({
