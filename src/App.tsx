@@ -1,10 +1,10 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import { post, generateClient } from 'aws-amplify/api'
-import { fetchAuthSession, signIn } from 'aws-amplify/auth'
+import { generateClient } from 'aws-amplify/api'
+// import { fetchAuthSession, signIn } from 'aws-amplify/auth'
 
 import * as q from './graphql/queries'
 
@@ -16,7 +16,7 @@ function App() {
   const test = async () => {
     try {
 
-      const res = client({
+      const res = await client.graphql({
         query: q.listTodos
       })
       // await signIn({
@@ -24,6 +24,7 @@ function App() {
       //   password: 'abcd1234'
       // })
 
+      console.log(res)
       // console.log(`${JSON.stringify((await fetchAuthSession()).tokens?.accessToken)}`)
     } catch(e){
       console.log(e)
