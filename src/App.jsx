@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { Storage } from 'aws-amplify'
+import { Storage, Auth } from 'aws-amplify'
 
 Storage.configure({
   customPrefix: {
@@ -12,11 +12,34 @@ Storage.configure({
 
 function App() {
 
+  const handleLogin = async () => {
+    try {
+      const res = await Auth.signIn({
+        username: 'dkkiuna11@gmail.com',
+        password: 'abcd1234'
+      })
+      console.log(res)
+    } catch(e){
+      console.log(e)
+    }
+  }
+
+  const getfile = async () => {
+    try {
+      const res = await Storage.get(
+        'some/benji.jpg'
+      )
+      console.log(res)
+    } catch(e){
+      console.log(e)
+    }
+  }
+
   const upload = async (files) => {
 
     console.log('uploading',files[0].name)
     try {
-      const result = await Storage.put(files[0].name, files[0], {
+      const result = await Storage.put('some/'+ files[0].name, files[0], {
         // resumable: true,
         // completeCallback: (event) => {
         //   console.log(`Successfully uploaded ${event.key}`);
@@ -47,7 +70,9 @@ function App() {
       <h1>Vite + React + Amplify</h1>
       <div className="card">
         <input type="file" onChange={(e) => upload(e.target.files)}/>
-        <button onClick={upload}>upload</button>
+        <button onClick={handleLogin}>Login</button><br />
+        <button onClick={getfile}>get</button>
+        
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
