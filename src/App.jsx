@@ -1,35 +1,34 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { Storage } from 'aws-amplify'
+import { useAuthenticator } from '@aws-amplify/ui-react'
+import { generateClient } from 'aws-amplify/api'
+import * as queries from './models/queries'
 
-Storage.configure({
-  customPrefix: {
-      public: 'myPublicPrefix/',
-  },
-
-})
 
 function App() {
 
-  const upload = async (files) => {
+  const client = generateClient()
 
-    console.log('uploading',files[0].name)
+  const { user, signOut} = useAuthenticator((context) => [context.user])
+  const upload = async () => {
     try {
-      const result = await Storage.put(files[0].name, files[0], {
-        // resumable: true,
-        // completeCallback: (event) => {
-        //   console.log(`Successfully uploaded ${event.key}`);
-        // },
-        // progressCallback: (progress) => {
-        //     console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
-        // },
-        // errorCallback: (err) => {
-        //     console.error('Unexpected error while uploading', err);
-        // }
+      
+      const res = await client.graphql({
+        query: queries.listTodos
       })
-      console.log(result)
+
+      console.log(res)
+
     } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const checkUser = async () => {
+    try {
+    
+    } catch(e){
       console.log(e)
     }
   }
@@ -45,9 +44,12 @@ function App() {
         </a>
       </div>
       <h1>Vite + React + Amplify</h1>
+      <p>Hi, {user.username}</p>
       <div className="card">
-        <input type="file" onChange={(e) => upload(e.target.files)}/>
+        {/* <input type="file" onChange={(e) => upload(e.target.files)}/> */}
         <button onClick={upload}>upload</button>
+        {/* <button onClick={checkUser}> Check User</button> */}
+        {/* <button onClick={() => Auth.signOut()}>SignOut</button> */}
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>

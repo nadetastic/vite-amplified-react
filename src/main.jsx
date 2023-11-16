@@ -7,6 +7,13 @@ import {
 import App from './App'
 import Test from './Test';
 import './index.css'
+import { Amplify } from 'aws-amplify';
+import config from '../amplifyconfiguration.json';
+
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css'
+
+Amplify.configure(config);
 
 const router = createBrowserRouter([
   {
@@ -19,13 +26,12 @@ const router = createBrowserRouter([
   },
 ]);
 
-
-import { Amplify } from 'aws-amplify'
-import config from './aws-exports'
-Amplify.configure(config)
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    {/* <Authenticator.Provider> */}
+      <Authenticator>
+        <RouterProvider router={router} />
+      </Authenticator>
+    {/* </Authenticator.Provider> */}
   </React.StrictMode>,
 )
