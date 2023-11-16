@@ -21,8 +21,18 @@ const router = createBrowserRouter([
 
 
 import { Amplify } from 'aws-amplify'
-import config from './aws-exports'
-Amplify.configure(config)
+import config from './amplifyconfiguration.json'
+Amplify.configure(config,{
+  Storage: {
+    S3: {
+      prefixResolver: async ({ accessLevel, targetIdentityId}) => {
+        if (accessLevel === 'guest') {
+          return 'myPublicPrefix/';
+        }
+      }
+    }
+  }
+})
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

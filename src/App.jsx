@@ -1,20 +1,16 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { Storage, Auth } from 'aws-amplify'
+import { uploadData, getUrl } from 'aws-amplify/storage'
+import { signIn } from 'aws-amplify/auth'
 
-Storage.configure({
-  customPrefix: {
-      public: 'myPublicPrefix/',
-  },
 
-})
 
 function App() {
 
   const handleLogin = async () => {
     try {
-      const res = await Auth.signIn({
+      const res = await signIn({
         username: 'dkkiuna11@gmail.com',
         password: 'abcd1234'
       })
@@ -26,9 +22,9 @@ function App() {
 
   const getfile = async () => {
     try {
-      const res = await Storage.get(
-        'some/benji.jpg'
-      )
+      const res = await getUrl({
+        key: 'v6-benji.jpg',
+      });
       console.log(res)
     } catch(e){
       console.log(e)
@@ -39,21 +35,13 @@ function App() {
 
     console.log('uploading',files[0].name)
     try {
-      const result = await Storage.put('some/'+ files[0].name, files[0], {
-        // resumable: true,
-        // completeCallback: (event) => {
-        //   console.log(`Successfully uploaded ${event.key}`);
-        // },
-        // progressCallback: (progress) => {
-        //     console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
-        // },
-        // errorCallback: (err) => {
-        //     console.error('Unexpected error while uploading', err);
-        // }
-      })
-      console.log(result)
-    } catch (e) {
-      console.log(e)
+      const result = await uploadData({
+        key: 'v6-'+ files[0].name,
+        data: files[0]
+      }).result;
+      console.log('Succeeded: ', result);
+    } catch (error) {
+      console.log('Error : ', error);
     }
   }
 
