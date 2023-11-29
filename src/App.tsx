@@ -1,35 +1,35 @@
 // import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-import { generateClient } from 'aws-amplify/api'
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { signIn, signOut } from "aws-amplify/auth";
+import { generateClient } from "aws-amplify/api";
 // import { fetchAuthSession, signIn } from 'aws-amplify/auth'
 
-import * as q from './graphql/queries'
+import * as q from "./graphql/queries";
 
-const client = generateClient()
+import { Authenticator } from "@aws-amplify/ui-react";
 
+// const client = generateClient()
+import "@aws-amplify/ui-react/styles.css";
 function App() {
-
-
   const test = async () => {
     try {
-
-      const res = await client.graphql({
-        query: q.listTodos
-      })
+      const user = await signIn({
+        username: "dkkiuna11@gmail.com",
+        password: "abcd1234",
+      });
       // await signIn({
       //   username: 'dkkiuna11@gmail.com',
       //   password: 'abcd1234'
       // })
 
-      console.log(res)
+      console.log(user);
       // console.log(`${JSON.stringify((await fetchAuthSession()).tokens?.accessToken)}`)
-    } catch(e){
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
-  }
+  };
 
   return (
     <>
@@ -43,9 +43,10 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={test}>
-          Test
-        </button>
+        <button onClick={test}>Sign In</button>
+        <br />
+        <button onClick={async () => await signOut()}>Sign Out</button>
+        {/* <Authenticator /> */}
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
@@ -54,7 +55,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
