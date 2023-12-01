@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "emailauth7e268f79_identitypool_7e268f79",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "emaila7e268f79",
-    "userPoolName": "emailauth7e268f79_userpool_7e268f79",
+    "identityPoolName": "restapi_identitypool_c4f4d2f4",
+    "allowUnauthenticatedIdentities": true,
+    "resourceNameTruncated": "restapc4f4d2f4",
+    "userPoolName": "restapi_userpool_c4f4d2f4",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,23 +31,38 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "emaila7e268f79_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "restapc4f4d2f4_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "7e268f79",
-    "resourceName": "emailauth7e268f797e268f79",
     "authSelections": "identityPoolAndUserPool",
+    "resourceName": "restapi",
+    "sharedId": "c4f4d2f4",
+    "serviceName": "Cognito",
     "useDefault": "manual",
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "useEnabledMfas": true,
+    "dependsOn": [],
     "thirdPartyAuth": false,
-    "usernameAttributes": [
-      "email"
-    ],
     "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {},
     "hostedUI": false,
     "userPoolGroupList": [],
-    "serviceName": "Cognito",
-    "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "authProviders": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "permissions": []
   }
 }
