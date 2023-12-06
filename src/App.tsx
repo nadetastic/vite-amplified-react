@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { get } from "aws-amplify/api";
 import { Amplify } from "aws-amplify";
 import "./App.css";
+import { signInWithRedirect } from "aws-amplify/auth";
+
 const existingConfig = Amplify.getConfig();
 console.log("existing config", existingConfig);
 
@@ -29,6 +31,17 @@ const App = () => {
   return (
     <div className="App">
       <button onClick={fetchData}>Fetch Data</button>
+      <button
+        onClick={() =>
+          signInWithRedirect({
+            provider: {
+              custom: "muscoAD",
+            },
+          })
+        }
+      >
+        Sign In with Microsoft
+      </button>
     </div>
   );
 };
