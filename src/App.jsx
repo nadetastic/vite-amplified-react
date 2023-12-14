@@ -4,6 +4,7 @@ import './App.css'
 import { useAuthenticator } from '@aws-amplify/ui-react'
 import { generateClient } from 'aws-amplify/api'
 import * as queries from './models/queries'
+import { Schema }
 
 
 function App() {
