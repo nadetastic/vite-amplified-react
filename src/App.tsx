@@ -1,10 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { generateClient } from "aws-amplify/api";
+// import { signInWithRedirect } from "aws-amplify/auth";
+import { Amplify } from "aws-amplify";
+
+import * as queries from "./graphql/queries";
+
+const excon = Amplify.getConfig();
+
+const client = generateClient();
+
+console.log({ excon });
 
 function App() {
-  const [count, setCount] = useState(0)
+  const apple = async () => {
+    try {
+      const result = await client.graphql({
+        query: queries.listTodos,
+        authMode: "iam",
+      });
+
+      console.log({ result });
+
+      //signInWithRedirect({ provider: "Apple" });
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <>
@@ -18,9 +41,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={apple}>Apple</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
@@ -29,7 +50,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
