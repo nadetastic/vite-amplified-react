@@ -20,7 +20,7 @@ function App() {
         console.log("result: ", result);
       })
       .catch((err) => {
-        // handling the error
+        // handling the errors
         console.error("error: ", err);
       });
   };
