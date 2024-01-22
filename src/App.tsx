@@ -5,8 +5,6 @@ import "./App.css";
 
 import { Storage, Auth } from "aws-amplify";
 function App() {
-  const [count, setCount] = useState(0);
-
   const [userForm, setUserForm] = useState<any>({});
 
   const fileUpload = async (file: any) => {
