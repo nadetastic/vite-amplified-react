@@ -9,20 +9,28 @@ function App() {
 
   const fileUpload = async (file: any) => {
     //}, progressSetter: any) => {
-    await Storage.put(`path`, file, {
+    // await
+    Storage.put(`path`, file, {
+      resumable: true,
       progressCallback(progress) {
         console.log(`uploaded: ${progress.loaded}/${progress.total}`);
         // progressSetter(Math.round((progress.loaded / progress.total) * 100));
       },
-    })
-      .then((result) => {
-        // handling the result
-        console.log("result: ", result);
-      })
-      .catch((err) => {
-        // handling the errors
-        console.error("error: ", err);
-      });
+      completeCallback: (event) => {
+        console.log(`Successfully uploaded ${event.key}`);
+      },
+      errorCallback: (err) => {
+        console.error("Unexpected error while uploading", err);
+      },
+    });
+    // .then((result) => {
+    //   // handling the result
+    //   console.log("result: ", result);
+    // })
+    // .catch((err) => {
+    //   // handling the errors
+    //   console.error("error: ", err);
+    // });
   };
 
   const login = async () => {
