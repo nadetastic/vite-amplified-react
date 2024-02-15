@@ -1,0 +1,53 @@
+{
+  "mfasms": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-emailauth-mfasms-163722-authRole",
+      "UnauthRoleArn": "arn:aws:iam::524405517764:role/amplify-emailauth-mfasms-163722-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::524405517764:role/amplify-emailauth-mfasms-163722-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-emailauth-mfasms-163722-deployment",
+      "UnauthRoleName": "amplify-emailauth-mfasms-163722-unauthRole",
+      "StackName": "amplify-emailauth-mfasms-163722",
+      "StackId": "arn:aws:cloudformation:us-east-1:524405517764:stack/amplify-emailauth-mfasms-163722/e1ad8c60-5cb4-11ee-b44e-12a8386ef723",
+      "AmplifyAppId": "d1h9l2amdyeseq",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-emailauth-mfasms-163722-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "authab808e69ab808e69": {}
+      },
+      "function": {
+        "authab808e69ab808e69CreateAuthChallenge": {
+          "deploymentBucketName": "amplify-emailauth-mfasms-163722-deployment",
+          "s3Key": "amplify-builds/authab808e69ab808e69CreateAuthChallenge-6c6f444e4d6134666b72-build.zip"
+        },
+        "authab808e69ab808e69DefineAuthChallenge": {
+          "deploymentBucketName": "amplify-emailauth-mfasms-163722-deployment",
+          "s3Key": "amplify-builds/authab808e69ab808e69DefineAuthChallenge-62304b346845796e3965-build.zip"
+        },
+        "authab808e69ab808e69VerifyAuthChallengeResponse": {
+          "deploymentBucketName": "amplify-emailauth-mfasms-163722-deployment",
+          "s3Key": "amplify-builds/authab808e69ab808e69VerifyAuthChallengeResponse-37323857656b4d4a7668-build.zip"
+        }
+      }
+    }
+  },
+  "smsmfa": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-auth-smsmfa-134328-authRole",
+      "UnauthRoleArn": "arn:aws:iam::524405517764:role/amplify-auth-smsmfa-134328-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::524405517764:role/amplify-auth-smsmfa-134328-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-auth-smsmfa-134328-deployment",
+      "UnauthRoleName": "amplify-auth-smsmfa-134328-unauthRole",
+      "StackName": "amplify-auth-smsmfa-134328",
+      "StackId": "arn:aws:cloudformation:us-east-1:524405517764:stack/amplify-auth-smsmfa-134328/54938100-cb71-11ee-8218-0a4ae53f5e61",
+      "AmplifyAppId": "d1h9l2amdyeseq"
+    },
+    "categories": {
+      "auth": {
+        "authfc6ca971fc6ca971": {}
+      }
+    }
+  }
+}
