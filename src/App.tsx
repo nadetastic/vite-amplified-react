@@ -7,7 +7,7 @@ import "@aws-amplify/ui-react/styles.css";
 function App() {
   const handleGet = async () => {
     try {
-      const getOperation = get({ apiName: "api", path: "/" });
+      const getOperation = get({ apiName: "api", path: "/api" });
       const result = await getOperation.response;
       console.log(result);
     } catch (e) {
