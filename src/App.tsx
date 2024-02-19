@@ -13,6 +13,7 @@ import {
   getCurrentUser,
   fetchMFAPreference,
   fetchDevices,
+  signOut,
 } from "aws-amplify/auth";
 function App() {
   const handleSignIn = async () => {
@@ -76,7 +77,7 @@ function App() {
   };
 
   return (
-    <Authenticator>
+    <>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -102,6 +103,9 @@ function App() {
         <div>
           <button onClick={fetchMFA}>Fetch MFA</button>
         </div>
+        <div>
+          <button onClick={async () => await signOut()}>Sign Out</button>
+        </div>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
@@ -109,7 +113,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </Authenticator>
+    </>
   );
 }
 
