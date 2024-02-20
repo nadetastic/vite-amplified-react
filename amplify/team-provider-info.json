@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-emailauth-dev-170926-authRole",
+      "UnauthRoleArn": "arn:aws:iam::524405517764:role/amplify-emailauth-dev-170926-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::524405517764:role/amplify-emailauth-dev-170926-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-emailauth-dev-170926-deployment",
+      "UnauthRoleName": "amplify-emailauth-dev-170926-unauthRole",
+      "StackName": "amplify-emailauth-dev-170926",
+      "StackId": "arn:aws:cloudformation:us-east-1:524405517764:stack/amplify-emailauth-dev-170926/54fbb320-ef7f-11ed-b3d1-0e3b4b6ffec3",
+      "AmplifyAppId": "d1h9l2amdyeseq"
+    },
+    "categories": {
+      "auth": {
+        "emailauth7e268f797e268f79": {}
+      }
+    }
+  },
+  "noidpool": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-auth-noidpool-161919-authRole",
+      "UnauthRoleArn": "arn:aws:iam::524405517764:role/amplify-auth-noidpool-161919-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::524405517764:role/amplify-auth-noidpool-161919-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-auth-noidpool-161919-deployment",
+      "UnauthRoleName": "amplify-auth-noidpool-161919-unauthRole",
+      "StackName": "amplify-auth-noidpool-161919",
+      "StackId": "arn:aws:cloudformation:us-east-1:524405517764:stack/amplify-auth-noidpool-161919/ee5ca8f0-cf74-11ee-afa1-0afa83937f2b",
+      "AmplifyAppId": "d1h9l2amdyeseq"
+    },
+    "categories": {
+      "auth": {
+        "auth9328b7a19328b7a1": {}
+      }
+    }
+  }
+}
