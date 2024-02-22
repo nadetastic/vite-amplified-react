@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { signUp } from "aws-amplify/auth";
+import { signUp, fetchAuthSession } from "aws-amplify/auth";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -20,8 +20,17 @@ function App() {
         // },
       });
       console.log(result);
-
       return result;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleFAS = async () => {
+    try {
+      const result = await fetchAuthSession();
+      console.log(result);
+      console.log(result.tokens?.accessToken.payload);
     } catch (e) {
       console.log(e);
     }
@@ -40,6 +49,9 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={handleSignUp}>Sign Up</button>
+        <div>
+          <button onClick={handleFAS}>Session</button>
+        </div>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
