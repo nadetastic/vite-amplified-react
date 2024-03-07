@@ -1,8 +1,14 @@
 import { useEffect } from "react";
 import { get } from "aws-amplify/api";
 import { Amplify } from "aws-amplify";
+import { Authenticator } from "@aws-amplify/ui-react";
 import "./App.css";
-import { signInWithRedirect } from "aws-amplify/auth";
+import "@aws-amplify/ui-react/styles.css";
+import {
+  signInWithRedirect,
+  fetchAuthSession,
+  getCurrentUser,
+} from "aws-amplify/auth";
 
 const existingConfig = Amplify.getConfig();
 console.log("existing config", existingConfig);
@@ -28,21 +34,37 @@ const App = () => {
     }
   }
 
+  const handleSession = async () => {
+    try {
+      const result = await fetchAuthSession();
+      console.log(result);
+      const result2 = await getCurrentUser();
+      console.log(result2);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
-    <div className="App">
-      <button onClick={fetchData}>Fetch Data</button>
-      <button
-        onClick={() =>
-          signInWithRedirect({
-            provider: {
-              custom: "muscoAD",
-            },
-          })
-        }
-      >
-        Sign In with Microsoft
-      </button>
-    </div>
+    <Authenticator>
+      <div className="App">
+        <div>
+          <button onClick={handleSession}>Session</button>
+        </div>
+        <button onClick={fetchData}>Fetch Data</button>
+        <button
+          onClick={() =>
+            signInWithRedirect({
+              provider: {
+                custom: "muscoAD",
+              },
+            })
+          }
+        >
+          Sign In with Microsoft
+        </button>
+      </div>
+    </Authenticator>
   );
 };
 
