@@ -15,5 +15,8 @@ backend.addOutput({
     branch: backend.auth.resources.userPool.node.tryGetContext(
       "amplify-backend-type"
     ),
+    namespace: backend.auth.resources.userPool.node.tryGetContext(
+      "amplify-backend-namespace"
+    ),
   },
 });
