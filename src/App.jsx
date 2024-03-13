@@ -1,38 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import { useAuthenticator } from '@aws-amplify/ui-react'
-import { generateClient } from 'aws-amplify/api'
-import * as queries from './models/queries'
-import { Schema }
-
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
+import { useAuthenticator } from "@aws-amplify/ui-react";
+import { generateClient } from "aws-amplify/api";
+import * as queries from "./models/queries";
+// import { Schema }
 
 function App() {
+  const client = generateClient();
 
-  const client = generateClient()
-
-  const { user, signOut} = useAuthenticator((context) => [context.user])
+  const { user, signOut } = useAuthenticator((context) => [context.user]);
   const upload = async () => {
     try {
-      
       const res = await client.graphql({
-        query: queries.listTodos
-      })
+        query: queries.listTodos,
+      });
 
-      console.log(res)
-
+      console.log(res);
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
-  }
+  };
 
   const checkUser = async () => {
     try {
-    
-    } catch(e){
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
-  }
+  };
 
   return (
     <div className="App">
@@ -59,7 +54,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
