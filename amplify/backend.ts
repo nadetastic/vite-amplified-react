@@ -18,5 +18,8 @@ backend.addOutput({
     namespace: backend.auth.resources.userPool.node.tryGetContext(
       "amplify-backend-namespace"
     ),
+    name: backend.auth.resources.userPool.node.tryGetContext(
+      "amplify-backend-name"
+    ),
   },
 });
